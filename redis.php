@@ -15,7 +15,7 @@ return $valor;
 function conectarRedis(): Client
 {
 return new Client([
-'scheme' => 'tcp',
+'scheme' => getenv('REDIS_SCHEME') ?: 'tcp',
 'host' => obterVariavelObrigatoria('REDIS_HOST'),
 'port' => (int) obterVariavelObrigatoria('REDIS_PORT'),
 'username' => getenv('REDIS_USERNAME') ?: 'default',
